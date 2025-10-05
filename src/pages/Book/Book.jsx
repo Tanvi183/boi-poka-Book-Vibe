@@ -1,10 +1,11 @@
 import React, { use } from 'react';
+import { FaStarHalfAlt } from "react-icons/fa";
 
 const Book = ({singleBook, bookPromise}) => {
     // const books = use(bookPromise);
     // console.log(books);
     console.log(singleBook);
-    const {bookName, author, image, rating, category, review} = singleBook;
+    const {bookName, author, image, rating, category, review, tags} = singleBook;
 
     return (
         <div className="card bg-base-100 w-96 shadow-sm border">
@@ -15,6 +16,11 @@ const Book = ({singleBook, bookPromise}) => {
                 alt="Shoes" />
             </figure>
             <div className="card-body">
+                <div className='flex justify-center gap-7'>
+                    {
+                        tags.map(tag => <button>{tag}</button>)
+                    }
+                </div>
                 <h2 className="card-title">
                 {bookName}
                 <div className="badge badge-secondary">{author}</div>
@@ -22,7 +28,7 @@ const Book = ({singleBook, bookPromise}) => {
                 <p className='line-clamp-3'>{review}</p>
                 <div className="card-actions justify-end">
                 <div className="badge badge-outline">{category}</div>
-                <div className="badge badge-outline">{rating}</div>
+                <div className="badge badge-outline">{rating} <FaStarHalfAlt /></div>
                 </div>
             </div>
         </div>
