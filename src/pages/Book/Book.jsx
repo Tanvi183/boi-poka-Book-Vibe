@@ -5,7 +5,7 @@ import { Link } from 'react-router';
 const Book = ({singleBook, bookPromise}) => {
     // const books = use(bookPromise);
     // console.log(books);
-    console.log(singleBook);
+    // console.log(singleBook);
     const {bookId, bookName, author, image, rating, category, review, tags} = singleBook;
 
     return (
@@ -20,7 +20,7 @@ const Book = ({singleBook, bookPromise}) => {
                 <div className="card-body">
                     <div className='flex justify-center gap-7'>
                         {
-                            tags.map(tag => <button>{tag}</button>)
+                            tags.map((tag, index) => <button key={index}>{tag}</button>)
                         }
                     </div>
                     <h2 className="card-title">
